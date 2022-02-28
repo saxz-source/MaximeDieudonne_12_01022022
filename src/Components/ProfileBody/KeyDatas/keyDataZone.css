@@ -1,0 +1,40 @@
+.keyDataElement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #fbfbfb;
+    border-radius: 5px;
+}
+
+.keyData_divIcon {
+    height: 2.65rem;
+    width: 2.65rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.dataData_icon {
+    height: 0.9rem;
+}
+
+.keyData_infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.keyData_value {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: black;
+}
+
+.keyData_text {
+    font-size: 0.625;
+    color: #74798c;
+}

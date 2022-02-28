@@ -1,0 +1,28 @@
+
+.activitiesTypeZone {
+    width: 11.5rem;
+    height: 11.75rem;
+}
+
+
+.activitiesTypeZone .recharts-wrapper {
+    background-color: #282d30;
+}
+
+.activitiesTypeZone .recharts-polar-grid-concentric-polygon {
+    stroke: white;
+}
+
+.activitiesTypeZone .recharts-layer .recharts-radar-polygon .recharts-polygon {
+    fill: #ff0101 !important;
+    stroke: #ff0101 !important;
+}
+
+.activitiesTypeZone .recharts-polar-grid-angle line {
+    display: none;
+}
+
+.activitiesTypeZone .recharts-text tspan {
+    fill: #fff;
+    font-size: 0.75em;
+}

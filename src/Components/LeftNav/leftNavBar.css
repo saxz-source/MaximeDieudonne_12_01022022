@@ -1,0 +1,45 @@
+.leftNavBar {
+    height: 100vh;
+    background-color: #020203;
+    width: 7.3rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftNav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 14.1rem;
+}
+
+.leftNav_item {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.leftNav_icon {
+    height: 1.4rem;
+}
+
+.copyrigth {
+    position: absolute;
+    color: #fff;
+    transform: rotate(270deg);
+    font-size: 0.5rem;
+    bottom: 10em;
+}

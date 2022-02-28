@@ -1,0 +1,43 @@
+.daylyChartZone {
+    width: 100%;
+ 
+    background-color: #fbfbfb;
+    padding: 1.1rem;
+    position: relative;
+}
+
+.recharts-default-legend {
+    text-align: right;
+}
+
+.legendStyle {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: #9b9eac !important ;
+}
+
+.recharts-legend-wrapper ul {
+    padding-bottom: 3rem !important;
+}
+
+.recharts-tooltip-item-name {
+    display: none;
+}
+
+.recharts-tooltip-item-separator {
+    display: none;
+}
+
+.daylyChartZone .recharts-text tspan {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    fill: #9b9eac !important ;
+}
+
+.daylyChartTitle {
+    font-size: 0.95rem;
+    color: #20253a;
+    position: absolute;
+    top: 1.35rem;
+    left: 2.5rem;
+}
