@@ -5,22 +5,18 @@ import {
     PolarGrid,
     PolarAngleAxis,
     PolarRadiusAxis,
-    ResponsiveContainer,
 } from "recharts";
-import { getActivitiesTypeNames } from "../../../functions/getChartUnits";
+import PropTypes from "prop-types";
 
 const RadarChartActivitiesType = ({ activitiesData, screenWidth }) => {
-    const [data, setData] = useState(null);
-  
+    const [data, setData] = useState([]);
 
-    // Update the data to display in the chart 
+    // Update the data to display in the chart
     useEffect(() => {
         if (activitiesData) {
-            const newDataSet = formatActivitiesData(activitiesData);
-            setData(newDataSet);
+            setData(activitiesData);
         }
     }, [activitiesData]);
-
 
     const [heigth, setHeight] = useState(188);
     // // Update the height of the radarChart depending on the screen size prop
@@ -28,22 +24,7 @@ const RadarChartActivitiesType = ({ activitiesData, screenWidth }) => {
     //     setHeight(screenWidth/ 5.44);
     // }, [screenWidth]);
 
-    /**
-     *
-     * @param {*} activitiesData
-     * @returns
-     */
-    const formatActivitiesData = (activitiesData) => {
-        const activitiesKinds = activitiesData.kind;
-        const activitiesDatas = activitiesData.data;
-        activitiesDatas.map((a) => {
-            return (a.kind = getActivitiesTypeNames(activitiesKinds[a.kind]));
-        });
-        return activitiesDatas;
-    };
-
     return (
-        
         <RadarChart
             outerRadius={heigth / 3}
             width={heigth}
@@ -67,6 +48,17 @@ const RadarChartActivitiesType = ({ activitiesData, screenWidth }) => {
             />
         </RadarChart>
     );
+};
+
+RadarChartActivitiesType.propTypes = {
+    /**
+     * The data required for the Chart @type {ActivitiesTypeData[]}
+     */
+    activitiesData: PropTypes.array.isRequired,
+    /**
+     * The innerWidth of the screen
+     */
+    screenWidth: PropTypes.number,
 };
 
 export default RadarChartActivitiesType;
