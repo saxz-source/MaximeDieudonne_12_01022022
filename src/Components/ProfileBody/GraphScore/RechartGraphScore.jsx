@@ -27,28 +27,23 @@ const RechartGraphScore = ({ todayScore, screenWidth }) => {
 
     return (
         <ResponsiveContainer width="100%" height="100%">
-            <PieChart width={400} height={400}>
+            <PieChart >
                 <Pie
                     data={scoreData}
-                    cx={120}
-                    cy={200}
-                    startAngle={180}
-                    endAngle={0}
+                    cx={75}
+                    cy={90}
                     innerRadius={60}
-                    outerRadius={80}
-                    paddingAngle={5}
+                    outerRadius={70}
+                    paddingAngle={0}
                     dataKey="score"
-                    
+                    cornerRadius={6}
                 />
-       
             </PieChart>
         </ResponsiveContainer>
     );
 };
 
 export default RechartGraphScore;
-
-
 
 // {ya.map((entry, index) => {
 //   console.log(index);

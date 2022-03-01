@@ -1,5 +1,27 @@
 .graphScoreZone {
-
     width: 11.5rem;
     height: 11.75rem;
+    position: relative;
+    background-color: #fbfbfb;
+}
+
+.graphScoreZone h2 {
+    left: 1.5rem;
+    top: 1.5rem;
+    font-size: 0.8rem;
+    color: #20253a;
+    font-weight: 500;
+    position: absolute;
+}
+
+.graphScoreZone > div > div {
+    transform: rotate(200deg) !important;
+}
+
+.graphScoreZone > div > div > svg > g > g > g:nth-child(2) > path {
+    fill: transparent;
+}
+
+.graphScoreZone > div > div > svg > g > g > g:nth-child(1) > path {
+    fill: red;
 }

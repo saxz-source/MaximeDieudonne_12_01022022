@@ -2,29 +2,43 @@ import React, { useEffect, useState } from "react";
 import { getDaylyActivities } from "../../../API/APICalls";
 import RechartDaylyActivities from "./RechartDaylyActivities";
 import "./graphDaylyActivities.css";
+import { DaylyActivityData } from "../../../classes/DaylyActivityData";
+import PropTypes from "prop-types";
+
 
 const GraphDaylyActivities = ({ userId, screenWidth }) => {
-    const [daylyData, setDaylyData] = useState(null);
-    const [chartWidth, setChartWidth] = useState("37.5rem");
+    // The data that will be displayed in the daylyActivities graph
+    const [daylyData, setDaylyData] = useState([]);
 
+    // Fetch the data for dayly activities corresponding to the user and type them
     useEffect(() => {
         getDaylyActivities(userId).then((res) => {
-            //  const parsedDatas = convertActivitiesToCSV(res.data.data.sessions);
-            console.log(res.data.data.sessions);
-            setDaylyData(res.data.data.sessions);
+            const daylyDatas = res.data.data.sessions.map((s) => {
+                return new DaylyActivityData(s);
+            });
+            setDaylyData(daylyDatas);
         });
     }, [userId]);
+    // const [chartWidth, setChartWidth] = useState("37.5rem");
 
-    useEffect(() => {
-        setChartWidth(window.innerHeight / 55 + "rem");
-    }, []);
+    // useEffect(() => {
+    //     setChartWidth(window.innerHeight / 55 + "rem");
+    // }, []);
 
     return (
-        <div className="daylyChartZone" style={{ height: chartWidth }}>
+        <div className="daylyChartZone" style={{ height: "16rem" }}>
             <h2 className="chartTitle daylyChartTitle">Activité quotidienne</h2>
-            <RechartDaylyActivities daylyData={daylyData && daylyData}   screenWidth={screenWidth} />
+            <RechartDaylyActivities
+                daylyData={daylyData && daylyData}
+                screenWidth={screenWidth}
+            />
         </div>
     );
+};
+
+GraphDaylyActivities.propTypes = {
+    /** The user id @type {number} */
+    userId: PropTypes.number.isRequired,
 };
 
 export default GraphDaylyActivities;
