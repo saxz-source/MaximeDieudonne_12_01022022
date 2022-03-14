@@ -1,5 +1,5 @@
-export class todayScoreData {
-  constructor({ score }) {
+export class TodayScoreData {
+  constructor(score ) {
     this.score = Number(score);
   }
 }

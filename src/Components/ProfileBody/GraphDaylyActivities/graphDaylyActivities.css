@@ -1,9 +1,9 @@
 .daylyChartZone {
     width: 100%;
-
     background-color: #fbfbfb;
     padding: 1.1rem;
     position: relative;
+    margin-bottom: 1.35rem;
 }
 
 .recharts-default-legend {
@@ -11,7 +11,7 @@
 }
 
 .legendStyle {
-    font-size: 0.875rem !important;
+    font-size: 0.8rem !important;
     font-weight: 500 !important;
     color: #9b9eac !important ;
 }
@@ -29,13 +29,13 @@
 }
 
 .daylyChartZone .recharts-text tspan {
-    font-size: 0.875rem !important;
+    font-size: 0.8rem !important;
     font-weight: 500 !important;
     fill: #9b9eac !important ;
 }
 
 .daylyChartTitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #20253a;
     position: absolute;
     top: 1.35rem;

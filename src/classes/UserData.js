@@ -1,5 +1,5 @@
 import { KeyData } from "./KeyData";
-import { todayScoreData } from "./TodayScoreData";
+import { TodayScoreData } from "./TodayScoreData";
 
 export class UserData {
   constructor({ id, keyData, todayScore, userInfos }) {
@@ -14,10 +14,11 @@ export class UserData {
   /**
    * Format score object
    * @param {number} score
-   * @returns {todayScoreData} number
+   * @returns {TodayScoreData} number
    */
   formatTodayScore(score) {
-    return new todayScoreData(score);
+    console.log(score)
+    return new TodayScoreData(score);
   }
 
   /**

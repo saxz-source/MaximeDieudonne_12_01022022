@@ -4,7 +4,7 @@ import RechartDaylyActivities from "./RechartDaylyActivities";
 import "./graphDaylyActivities.css";
 import { DaylyActivityData } from "../../../classes/DaylyActivityData";
 import PropTypes from "prop-types";
-
+import { DaylyActivityDatas } from "../../../classes/DaylyActivitiesDatas";
 
 const GraphDaylyActivities = ({ userId, screenWidth }) => {
     // The data that will be displayed in the daylyActivities graph
@@ -13,10 +13,13 @@ const GraphDaylyActivities = ({ userId, screenWidth }) => {
     // Fetch the data for dayly activities corresponding to the user and type them
     useEffect(() => {
         getDaylyActivities(userId).then((res) => {
-            const daylyDatas = res.data.data.sessions.map((s) => {
-                return new DaylyActivityData(s);
-            });
-            setDaylyData(daylyDatas);
+            const daylyDatas = new DaylyActivityDatas(res.data.data.sessions);
+
+            console.log(daylyDatas)
+            // const daylyDatas = res.data.data.sessions.map((s) => {
+            //     return new DaylyActivityData(s);
+            // });
+            setDaylyData(daylyDatas.daylyActivityData);
         });
     }, [userId]);
     // const [chartWidth, setChartWidth] = useState("37.5rem");

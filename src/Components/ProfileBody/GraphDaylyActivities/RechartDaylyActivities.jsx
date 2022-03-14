@@ -27,10 +27,8 @@ const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
      */
     useEffect(() => {
         if (daylyData) {
+            console.log(daylyData)
             setData(daylyData);
-            setExtremeWeights(
-                getExtremeNumbersInArray(daylyData.map((d) => d.kilogram))
-            );
         }
     }, [daylyData]);
 
@@ -66,14 +64,14 @@ const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
                     top: 5,
                     right: 30,
                     left: 20,
-                    bottom: 5,
+                    bottom: 23,
                 }}
                 barSize={5}
                 barCategoryGap={54}
                 barGap={6}
             >
                 <CartesianGrid strokeDasharray="4" vertical={false} />
-                <XAxis dataKey="day" tickLine={false} tickMargin={30} />
+                <XAxis dataKey="day" tickLine={false} tickMargin={16} />
                 <YAxis
                     tickCount={3}
                     axisLine={false}
@@ -108,7 +106,7 @@ RechartDaylyActivities.propTypes = {
     /**
      * The data required for the Chart @type {DaylyActivityData[]}
      */
-    daylyData: PropTypes.array.isRequired,
+    daylyData: PropTypes.array,
     /**
      * The innerWidth of the screen
      */

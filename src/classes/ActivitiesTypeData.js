@@ -22,7 +22,7 @@ export class ActivitiesTypeData {
                 kind: this.getActivitiesTypeNames(activitiesKinds[a.kind]),
             };
         });
-        console.log(activitiesDatas);
+      //  console.log(activitiesDatas);
         return formattedDatas;
     }
 

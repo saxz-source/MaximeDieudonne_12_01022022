@@ -1,10 +1,11 @@
 export class DaylyActivityData {
-    constructor({ day, kilogram, calories }) {
+    constructor({ day, kilogram, calories }, coeffDividingCalories) {
         this.day = this.formatDay(day);
         this.kilogram = kilogram;
         this.calories = calories;
         this.kilogramUnit = "kg";
         this.caloriesUnit = "Kcal";
+        this.caloriesModified = calories / coeffDividingCalories;
     }
 
     /**
