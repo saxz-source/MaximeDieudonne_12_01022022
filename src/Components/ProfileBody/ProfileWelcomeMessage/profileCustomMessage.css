@@ -1,8 +1,14 @@
 .helloSentence {
     font-size: 2.1rem;
     color: black;
+    font-weight: 500;
+    margin-bottom: 1.8rem;
 }
 
 .firstName {
     color: #ff0101;
+}
+
+.congratsSentence {
+    margin-bottom: 3.3rem;
 }
