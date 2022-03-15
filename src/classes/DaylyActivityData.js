@@ -1,12 +1,30 @@
+
 export class DaylyActivityData {
-    constructor({ day, kilogram, calories }, coeffDividingCalories) {
+    constructor({ day, kilogram, calories }, maxCalories, minWeigth, diffWeigth) {
         this.day = this.formatDay(day);
         this.kilogram = kilogram;
         this.calories = calories;
         this.kilogramUnit = "kg";
         this.caloriesUnit = "Kcal";
-        this.caloriesModified = calories / coeffDividingCalories;
+        this.caloriesOnGraph = this.getCaloriesOnGraph(calories, maxCalories, minWeigth, diffWeigth)
+
     }
+
+    /**
+     * Compute the calorie vlaue displayed on the graph :
+     * First we get the result of the calories amount / max calories amount.
+     * Second we multiply by the interval in which the amount is displayed (max weight - min weight)
+     * Then we add the number to reach this filed, i.e., the min-weight
+     * @param {number} calories 
+     * @param {number} maxCalories 
+     * @param {number} minWeigth 
+     * @param {number} diffWeigth 
+     * @returns {number} return the calorie value that will be displayed on the graph
+     */
+    getCaloriesOnGraph(calories, maxCalories, minWeigth, diffWeigth) {
+        return (calories/maxCalories * diffWeigth) + minWeigth
+    }
+
 
     /**
      * Format the day in order to be displayed in the graph

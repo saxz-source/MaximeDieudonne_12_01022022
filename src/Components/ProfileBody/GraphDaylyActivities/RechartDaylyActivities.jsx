@@ -3,7 +3,6 @@ import {
     getDaylyActivitiesUnit,
     getDaylyActivitiesNames,
 } from "../../../functions/getChartUnits";
-import { getExtremeNumbersInArray } from "../../../functions/getExtremeNumbersInArray";
 import {
     BarChart,
     Bar,
@@ -16,21 +15,22 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
+const RechartDaylyActivities = ({ daylyDatas }) => {
     /** The chart data */
     const [data, setData] = useState([]);
-    /** The extreme points for chart y axis */
-    const [extremeWeigths, setExtremeWeights] = useState([]);
+
+    const [metaData, setMetaData] = useState({});
 
     /**
      * Update the data displayed in the chart if exists
      */
     useEffect(() => {
-        if (daylyData) {
-            console.log(daylyData)
-            setData(daylyData);
+        console.log(daylyDatas);
+        if (daylyDatas) {
+            setMetaData(daylyDatas);
+            setData(daylyDatas.daylyActivityData);
         }
-    }, [daylyData]);
+    }, [daylyDatas]);
 
     /**
      * For each type of variable used for chart, render a legend field
@@ -50,9 +50,13 @@ const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
      * Render a tooltip string line from variable name and value
      * @param {number} value the value of the variable
      * @param {string} name the variable name
-     * @returns {string} a ormatted tooltip line
+     * @returns {string} a formatted tooltip line
      */
-    const renderToolTip = (value, name) => {
+    const renderToolTip = (value, name, props) => {
+        console.log(props);
+        if (name === "caloriesOnGraph") {
+            return parseInt(props.payload.calories.toFixed(0)) + "Kcal";
+        }
         return value + getDaylyActivitiesUnit(name);
     };
 
@@ -73,11 +77,13 @@ const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
                 <CartesianGrid strokeDasharray="4" vertical={false} />
                 <XAxis dataKey="day" tickLine={false} tickMargin={16} />
                 <YAxis
-                    tickCount={3}
+                    tickCount={4}
                     axisLine={false}
                     tickSize={0}
                     orientation="right"
                     tickMargin={32}
+                    dataKey="kilogram"
+                    domain={["dataMin-1", "dataMax+1"]}
                 />
                 <Tooltip
                     itemStyle={{
@@ -96,21 +102,18 @@ const RechartDaylyActivities = ({ daylyData, screenWidth }) => {
                     formatter={renderLegend}
                 />
                 <Bar dataKey="kilogram" fill="#282D30" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} />
+                <Bar
+                    dataKey="caloriesOnGraph"
+                    fill="#E60000"
+                    radius={[3, 3, 0, 0]}
+                />
             </BarChart>
         </ResponsiveContainer>
     );
 };
 
 RechartDaylyActivities.propTypes = {
-    /**
-     * The data required for the Chart @type {DaylyActivityData[]}
-     */
-    daylyData: PropTypes.array,
-    /**
-     * The innerWidth of the screen
-     */
-    screenWidth: PropTypes.number,
+    daylyDatas: PropTypes.object,
 };
 
 export default RechartDaylyActivities;
