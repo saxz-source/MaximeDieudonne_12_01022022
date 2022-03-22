@@ -1,4 +1,4 @@
-export class OneSessionData {
+export class SessionData {
     constructor({ day, sessionLength }) {
         this.day = day;
         this.sessionLength = sessionLength;

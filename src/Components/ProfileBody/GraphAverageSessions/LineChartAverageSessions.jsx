@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from "react";
-import {
-    LineChart,
-    Line,
-    XAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-} from "recharts";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { getAverageSessionsNames } from "../../../functions/getChartUnits";
 import ToolTipAverageSessions from "./ToolTipAverageSessions";
 import PropTypes from "prop-types";
+import { SessionData } from "../../../classes/SessionData";
+import CustomToolTipCursorAS from "./CustomToolTipCusorAS";
 
-
-const LineChartAverageSessions = ({ sessionData }) => {
-    const [sessionsData, setSessionData] = useState(null);
+/** @returns the graph for the average sessions line graph */
+const LineChartAverageSessions = ({ sessionDatas }) => {
+    /** The session datas that feeds the line graph @type {SessionData[]} */
+    const [sessionsDatas, setSessionDatas] = useState(null);
 
     useEffect(() => {
-        if (sessionData) {
-            console.log(sessionData)
-            const formatedSessionDatas = formatSessionDatas(sessionData);
+        if (sessionDatas) {
+            console.log(sessionDatas);
+            const formatedSessionDatas = formatSessionDatas(sessionDatas);
             console.log(formatedSessionDatas);
-            setSessionData(formatedSessionDatas);
+            setSessionDatas(formatedSessionDatas);
         }
-    }, [sessionData]);
+    }, [sessionDatas]);
 
     /**
      * Format the datas by changing the data "name"
-     * @param {*} sessionData
+     * @param {*} sessionDatas
      * @returns
      */
-    const formatSessionDatas = (sessionData) => {
-        return sessionData.map((s) => {
+    const formatSessionDatas = (sessionDatas) => {
+        return sessionDatas.map((s) => {
             return {
                 ...s,
                 day: getAverageSessionsNames(s.day),
@@ -40,19 +36,27 @@ const LineChartAverageSessions = ({ sessionData }) => {
 
     return (
         <ResponsiveContainer width="100%" height="75%">
-            <LineChart data={sessionsData} className="averageLineChart">
+            <LineChart data={sessionsDatas} className="averageLineChart">
                 <XAxis dataKey="day" axisLine={false} tickLine={false} />
-                <Tooltip content={<ToolTipAverageSessions />} />
+                <Tooltip
+                    content={<ToolTipAverageSessions />}
+                    cursor={<CustomToolTipCursorAS />}
+                />
                 <Line
                     type="monotone"
                     dataKey="sessionLength"
-                    stroke="#FFFFFF"
-                    activeDot={{ r: 2, className: "dotLineShadow" }}
+                    stroke="rgba(255,255,255,0.75)"
+                    activeDot={{ r: 3, className: "dotLineShadow" }}
                     dot={{ r: 0 }}
                 />
             </LineChart>
         </ResponsiveContainer>
     );
+};
+
+LineChartAverageSessions.propTypes = {
+    /** @type {SessionData[]} */
+    sessionDatas: PropTypes.array,
 };
 
 export default LineChartAverageSessions;

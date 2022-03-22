@@ -36,8 +36,10 @@
     height: 75%;
 }
 
-.dotLineShadow {
-    box-shadow: 3px 3px rgba(255, 255, 255, 0.473);
+circle {
+    fill: white;
+    stroke: rgba(255, 255, 255, 0.534);
+    stroke-width: 5px;
 }
 
 .averageToolTip {

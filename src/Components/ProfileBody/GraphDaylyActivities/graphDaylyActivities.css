@@ -4,6 +4,7 @@
     padding: 1.1rem;
     position: relative;
     margin-bottom: 1.35rem;
+    border-radius: 5px;
 }
 
 .recharts-default-legend {
@@ -35,9 +36,9 @@
 }
 
 .daylyChartTitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #20253a;
     position: absolute;
     top: 1.35rem;
-    left: 2.5rem;
+    left: 1.25rem;
 }
