@@ -2,6 +2,7 @@
     width: 11.5rem;
     height: 11.75rem;
     background-color: #ff0000;
+    border-radius: 5px;
 }
 
 .averageSessionsZone .recharts-responsive-container {
@@ -9,7 +10,7 @@
 }
 
 .averageSessionsZone text {
-    fill: #fff;
+    fill: rgba(255, 255, 255, 0.534);
 }
 
 .averageSessionsZone .xAxis {
@@ -24,8 +25,10 @@
 .averageChartTitle {
     padding-top: 1.3rem;
     padding-left: 1.3rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    width: 70%;
     color: #fff;
+    opacity: 0.5;
     font-weight: 500;
 }
 

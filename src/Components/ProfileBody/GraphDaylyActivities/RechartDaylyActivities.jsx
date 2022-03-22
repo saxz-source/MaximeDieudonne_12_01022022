@@ -19,15 +19,11 @@ const RechartDaylyActivities = ({ daylyDatas }) => {
     /** The chart data */
     const [data, setData] = useState([]);
 
-    const [metaData, setMetaData] = useState({});
-
     /**
      * Update the data displayed in the chart if exists
      */
     useEffect(() => {
-        console.log(daylyDatas);
         if (daylyDatas) {
-            setMetaData(daylyDatas);
             setData(daylyDatas.daylyActivityData);
         }
     }, [daylyDatas]);
@@ -38,10 +34,26 @@ const RechartDaylyActivities = ({ daylyDatas }) => {
      * @returns {}
      */
     const renderLegend = (value) => {
+        let nameValue = "";
+        let unit = "";
+        switch (value) {
+            case "kilogram":
+                nameValue = "kilogram";
+                unit = "kg";
+                break;
+            case "caloriesOnGraph":
+                nameValue = "Calories brûlées";
+                unit = "kCal";
+                break;
+            default:
+                nameValue = value;
+                unit = value;
+                break;
+        }
         return (
             <span className="legendStyle">
-                {getDaylyActivitiesNames(value)} (
-                {getDaylyActivitiesUnit(value)})
+                {getDaylyActivitiesNames(nameValue)} (
+                {getDaylyActivitiesUnit(unit)})
             </span>
         );
     };
@@ -53,7 +65,6 @@ const RechartDaylyActivities = ({ daylyDatas }) => {
      * @returns {string} a formatted tooltip line
      */
     const renderToolTip = (value, name, props) => {
-        console.log(props);
         if (name === "caloriesOnGraph") {
             return parseInt(props.payload.calories.toFixed(0)) + "Kcal";
         }

@@ -9,12 +9,15 @@ import {
 } from "recharts";
 import { getAverageSessionsNames } from "../../../functions/getChartUnits";
 import ToolTipAverageSessions from "./ToolTipAverageSessions";
+import PropTypes from "prop-types";
+
 
 const LineChartAverageSessions = ({ sessionData }) => {
     const [sessionsData, setSessionData] = useState(null);
 
     useEffect(() => {
         if (sessionData) {
+            console.log(sessionData)
             const formatedSessionDatas = formatSessionDatas(sessionData);
             console.log(formatedSessionDatas);
             setSessionData(formatedSessionDatas);
