@@ -1,7 +1,7 @@
 .daylyChartZone {
     width: 100%;
     background-color: #fbfbfb;
-    padding: 1.1rem;
+    padding: 1rem;
     position: relative;
     margin-bottom: 1.35rem;
     border-radius: 5px;
@@ -18,7 +18,7 @@
 }
 
 .recharts-legend-wrapper ul {
-    padding-bottom: 3rem !important;
+    padding-bottom: 2.5rem !important;
 }
 
 .recharts-tooltip-item-name {

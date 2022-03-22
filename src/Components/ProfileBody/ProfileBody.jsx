@@ -7,7 +7,7 @@ import KeyDatasZone from "./KeyDatas/KeyDatasZone";
 import { UserData } from "../../classes/UserData";
 import PropTypes from "prop-types";
 
-const ProfileBody = ({ userId = 12 }) => {
+const ProfileBody = ({ userId = 18 }) => {
     const [userData, setUserData] = useState(null);
 
     // Fetch and set user data from the ID

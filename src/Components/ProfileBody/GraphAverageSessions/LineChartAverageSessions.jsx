@@ -13,19 +13,17 @@ const LineChartAverageSessions = ({ sessionDatas }) => {
 
     useEffect(() => {
         if (sessionDatas) {
-            console.log(sessionDatas);
-            const formatedSessionDatas = formatSessionDatas(sessionDatas);
-            console.log(formatedSessionDatas);
-            setSessionDatas(formatedSessionDatas);
+            setSessionDatas(formatSessionDatas(sessionDatas));
         }
     }, [sessionDatas]);
 
     /**
      * Format the datas by changing the data "name"
-     * @param {*} sessionDatas
+     * @param {sessionDatas[]} sessionDatas
      * @returns
      */
     const formatSessionDatas = (sessionDatas) => {
+        addExtraPerformances(sessionDatas);
         return sessionDatas.map((s) => {
             return {
                 ...s,
@@ -34,8 +32,27 @@ const LineChartAverageSessions = ({ sessionDatas }) => {
         });
     };
 
+    /**
+     * Add extra fake performance to continue the graph line outside the graph
+     * @param {SessionData[]} sessionDatas
+     * @returns {SessionData[]}
+     */
+    const addExtraPerformances = (sessionDatas) => {
+        sessionDatas.unshift({
+            day: 0,
+            sessionLength: sessionDatas.filter((s) => s.day === 1)[0]
+                .sessionLength,
+        });
+        sessionDatas.push({
+            day: 8,
+            sessionLength: sessionDatas.filter((s) => s.day === 7)[0]
+                .sessionLength,
+        });
+        return sessionDatas;
+    };
+
     return (
-        <ResponsiveContainer width="100%" height="75%">
+        <ResponsiveContainer width={220} height="100%">
             <LineChart data={sessionsDatas} className="averageLineChart">
                 <XAxis dataKey="day" axisLine={false} tickLine={false} />
                 <Tooltip

@@ -5,7 +5,9 @@ import "./graphActivitiesType.css";
 import { ActivitiesTypeData } from "../../../classes/ActivitiesTypeData";
 import PropTypes from "prop-types";
 
-const GraphActivitiesType = ({ userId, screenWidth }) => {
+/**@returns The place where is diplayed the activities type graph */
+const GraphActivitiesType = ({ userId }) => {
+    /** The array of activities type @type {ActivitiesTypeData} */
     const [activitiesType, setActivitiesType] = useState([]);
 
     useEffect(() => {
@@ -13,16 +15,14 @@ const GraphActivitiesType = ({ userId, screenWidth }) => {
             const activitiesTypeData = new ActivitiesTypeData(res.data.data);
             const formatedActivitiesTypeData =
                 activitiesTypeData.formatActivitiesData();
+            console.log(formatedActivitiesTypeData);
             setActivitiesType(formatedActivitiesTypeData);
         });
     }, [userId]);
 
     return (
         <div className="activitiesTypeZone">
-            <RadarChartActivitiesType
-                activitiesData={activitiesType}
-                screenWidth={screenWidth}
-            />
+            <RadarChartActivitiesType activitiesData={activitiesType} />
         </div>
     );
 };
@@ -30,10 +30,6 @@ const GraphActivitiesType = ({ userId, screenWidth }) => {
 GraphActivitiesType.propTypes = {
     /** The user id @type {number} */
     userId: PropTypes.number.isRequired,
-    /**
-     * The innerWidth of the screen
-     */
-    screenWidth: PropTypes.number,
 };
 
 export default GraphActivitiesType;

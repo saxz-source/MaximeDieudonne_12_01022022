@@ -15,7 +15,6 @@ const GraphAverageSessions = ({ userId }) => {
             const dataSet = res.data.data.sessions.map((s) => {
                 return new SessionData(s);
             });
-            console.log(res.data.data.sessions);
             setSessionDatas(dataSet);
         });
     }, [userId]);

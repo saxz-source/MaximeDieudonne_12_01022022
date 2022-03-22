@@ -39,6 +39,11 @@ export const getActivitiesTypeNames = (variable) => {
     }
 };
 
+/**
+ * Convert the day number to the day letter
+ * @param {number} variable the day number
+ * @returns {string} the day Letter corresponding to the day number
+ */
 export const getAverageSessionsNames = (variable) => {
     switch (variable) {
         case 1:
@@ -56,10 +61,14 @@ export const getAverageSessionsNames = (variable) => {
             case 7:
                 return "D";
         default:
-            return variable;
+            return " ";
     }
 };
 
+/**
+ * Just return "min" 
+ * @returns {string} "min"
+ */
 export const getAverageSessionsUnits = ()=>{
     return "min"
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { getAverageSessionsUnits } from "../../../functions/getChartUnits";
 import PropTypes from "prop-types";
 
-
 /** @returns the tooltip for the average session graph */
 const ToolTipAverageSessions = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -16,7 +15,7 @@ const ToolTipAverageSessions = ({ active, payload }) => {
 };
 
 ToolTipAverageSessions.propTypes = {
-  //  active: PropTypes.boolean.isRequired,
+    //  active: PropTypes.boolean.isRequired,
     payload: PropTypes.array,
 };
 
