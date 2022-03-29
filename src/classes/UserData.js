@@ -1,6 +1,7 @@
 import { KeyData } from "./KeyData";
 import { TodayScoreData } from "./TodayScoreData";
 
+/** Class for the user datas  */
 export class UserData {
   constructor({ id, keyData, todayScore, userInfos }) {
     this.id = id;

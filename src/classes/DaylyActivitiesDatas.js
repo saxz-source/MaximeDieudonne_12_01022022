@@ -1,5 +1,6 @@
 import { DaylyActivityData } from "./DaylyActivityData";
 
+/** Class for all activies datas */
 export class DaylyActivityDatas {
     constructor(daylyActivityDatas) {
         this.maxWeight = Math.max(...daylyActivityDatas.map((d) => d.kilogram));

@@ -1,3 +1,4 @@
+/** Class for a key data (an element) */
 export class KeyData {
   constructor( keyDataObject ) {
     this.calorieCountWithUnits = this.addCaloriesUnits(

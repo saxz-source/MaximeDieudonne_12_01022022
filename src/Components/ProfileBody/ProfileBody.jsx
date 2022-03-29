@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 import ErrorMessage from "../Errors/ErrorMessage";
 import Loader from "../Loader/Loader";
 
-
-
 /** @returns the section that corresponds to the profil page*/
 const ProfileBody = ({ userId = 18 }) => {
     /** The general user datas @type {UserData} */
@@ -42,12 +40,12 @@ const ProfileBody = ({ userId = 18 }) => {
             });
     }, [userId]);
 
-    if (loadStatus.loading){
-        return <Loader/>
+    if (loadStatus.loading) {
+        return <Loader />;
     }
 
     if (loadStatus.hasError) {
-        return <ErrorMessage/>;
+        return <ErrorMessage />;
     }
 
     return (

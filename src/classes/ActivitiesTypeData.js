@@ -1,3 +1,4 @@
+/** Class for activities type data */
 export class ActivitiesTypeData {
     constructor(activitiesData) {
         this.data = activitiesData.data;
