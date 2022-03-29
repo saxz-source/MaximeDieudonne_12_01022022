@@ -3,11 +3,12 @@
     height: 11.75rem;
     position: relative;
     background-color: #fbfbfb;
+    border-radius: 5px;
 }
 
 .graphScoreZone h2 {
-    left: 1.5rem;
-    top: 1.5rem;
+    left: 1.3rem;
+    top: 1rem;
     font-size: 0.8rem;
     color: #20253a;
     font-weight: 500;
@@ -20,8 +21,37 @@
 
 .graphScoreZone > div > div > svg > g > g > g:nth-child(2) > path {
     fill: transparent;
+    stroke: none;
 }
 
 .graphScoreZone > div > div > svg > g > g > g:nth-child(1) > path {
     fill: red;
+}
+
+.circleWithText {
+    background-color: white;
+    border-radius: 100%;
+    padding: 0.5rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 7rem;
+    width: 7rem;
+}
+
+.rate {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.addedInfos {
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 500;
 }

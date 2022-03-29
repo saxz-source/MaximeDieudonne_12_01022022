@@ -15,13 +15,12 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/** @returns The graph that displays dayly activities data */
 const RechartDaylyActivities = ({ daylyDatas }) => {
     /** The chart data */
     const [data, setData] = useState([]);
 
-    /**
-     * Update the data displayed in the chart if exists
-     */
+    // Update the data displayed in the chart if exists
     useEffect(() => {
         if (daylyDatas) {
             setData(daylyDatas.daylyActivityData);

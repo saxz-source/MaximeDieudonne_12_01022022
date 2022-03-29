@@ -1,3 +1,11 @@
+This project is developed on NODEjs v16.14.0, using REACTjs Create React App.
+
+The API calls are made to localhost port 4000.
+
+To launch it : install packages (npm i -s) then enter npm start.
+
+For more details on create react app scripts :
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

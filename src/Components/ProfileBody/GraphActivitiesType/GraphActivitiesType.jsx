@@ -4,25 +4,47 @@ import RadarChartActivitiesType from "./RadarChartActivitiesType";
 import "./graphActivitiesType.css";
 import { ActivitiesTypeData } from "../../../classes/ActivitiesTypeData";
 import PropTypes from "prop-types";
+import Loader from "../../Loader/Loader";
+import ErrorMessage from "../../Errors/ErrorMessage";
 
 /**@returns The place where is diplayed the activities type graph */
 const GraphActivitiesType = ({ userId }) => {
     /** The array of activities type @type {ActivitiesTypeData} */
     const [activitiesType, setActivitiesType] = useState([]);
 
+    /** The load status @type {{loading: boolean, hasError: boolean, success: boolean}} */
+    const [loadStatus, setLoadStatus] = useState({
+        loading: true,
+        hasError: false,
+        success: false,
+    });
+
     useEffect(() => {
-        getActivitiesType(userId).then((res) => {
-            const activitiesTypeData = new ActivitiesTypeData(res.data.data);
-            const formatedActivitiesTypeData =
-                activitiesTypeData.formatActivitiesData();
-            console.log(formatedActivitiesTypeData);
-            setActivitiesType(formatedActivitiesTypeData);
-        });
+        getActivitiesType(userId)
+            .then((res) => {
+                setActivitiesType(res);
+                setLoadStatus({
+                    hasError: false,
+                    loading: false,
+                    success: true,
+                });
+            })
+            .catch((e) => {
+                setLoadStatus({
+                    hasError: true,
+                    loading: false,
+                    success: false,
+                });
+            });
     }, [userId]);
 
     return (
         <div className="activitiesTypeZone">
-            <RadarChartActivitiesType activitiesData={activitiesType} />
+            {loadStatus.success && (
+                <RadarChartActivitiesType activitiesData={activitiesType} />
+            )}
+            {loadStatus.hasError && <ErrorMessage />}
+            {loadStatus.loading && <Loader />}
         </div>
     );
 };

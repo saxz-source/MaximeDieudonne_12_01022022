@@ -1,3 +1,8 @@
+/**
+ * Convert a measure name into its units
+ * @param {string} variable a measure name
+ * @returns {string} units
+ */
 export const getDaylyActivitiesUnit = (variable) => {
     switch (variable) {
         case "kilogram":
@@ -9,6 +14,11 @@ export const getDaylyActivitiesUnit = (variable) => {
     }
 };
 
+/**
+ * convert a measure name into a the string displayed for users
+ * @param {string} variable a measure name
+ * @returns {string} the string seen by users
+ */
 export const getDaylyActivitiesNames = (variable) => {
     switch (variable) {
         case "kilogram":
@@ -20,6 +30,11 @@ export const getDaylyActivitiesNames = (variable) => {
     }
 };
 
+/**
+ * convert an activity name to the string the users see
+ * @param {string} variable an activity name
+ * @returns {string} the string seen by users
+ */
 export const getActivitiesTypeNames = (variable) => {
     switch (variable) {
         case "cardio":
@@ -58,17 +73,17 @@ export const getAverageSessionsNames = (variable) => {
             return "V";
         case 6:
             return "S";
-            case 7:
-                return "D";
+        case 7:
+            return "D";
         default:
             return " ";
     }
 };
 
 /**
- * Just return "min" 
+ * Just return "min"
  * @returns {string} "min"
  */
-export const getAverageSessionsUnits = ()=>{
-    return "min"
-}
+export const getAverageSessionsUnits = () => {
+    return "min";
+};

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 /** @returns  the name of the user in a span element */
 const ProfileName = ({ userName }) => {
+    /** The user name @type {string} */
     const [name, setName] = useState("");
 
     useEffect(() => {

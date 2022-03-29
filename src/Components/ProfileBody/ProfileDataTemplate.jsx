@@ -7,39 +7,13 @@ import PropTypes from "prop-types";
 
 /** @returns the template with the four graphs */
 const ProfileDataTemplate = ({ userId, todayScore }) => {
-    // Init the screen width variable
-    const [screenWidth, setScreenWidth] = useState(undefined);
-
-    // Put a screen width listener to adjust the graph size
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-            const newWidth = window.innerWidth;
-            setScreenWidth(newWidth);
-            console.log("updating height");
-        };
-        window.addEventListener("resize", updateWindowDimensions);
-        return () =>
-            window.removeEventListener("resize", updateWindowDimensions);
-    }, []);
-
     return (
         <section className="profilDataTemplate">
-            <GraphDaylyActivities userId={userId} screenWidth={screenWidth} />
+            <GraphDaylyActivities userId={userId} />
             <div className="threeGraphs">
-                <GraphAverageSessions
-                    userId={userId}
-                    screenWidth={screenWidth}
-                />
-                <GraphActivitiesType
-                    userId={userId}
-                    screenWidth={screenWidth}
-                />
-
-                <GraphScore
-                    userId={userId}
-                    screenWidth={screenWidth}
-                    todayScore={todayScore}
-                />
+                <GraphAverageSessions userId={userId} />
+                <GraphActivitiesType userId={userId} />
+                <GraphScore userId={userId} todayScore={todayScore} />
             </div>
         </section>
     );
