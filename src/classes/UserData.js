@@ -18,7 +18,6 @@ export class UserData {
    * @returns {TodayScoreData} number
    */
   formatTodayScore(score) {
-    console.log(score)
     return new TodayScoreData(score);
   }
 

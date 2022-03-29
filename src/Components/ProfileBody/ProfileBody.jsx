@@ -32,6 +32,7 @@ const ProfileBody = ({ userId = 18 }) => {
                 });
             })
             .catch((e) => {
+                console.log(e)
                 setLoadStatus({
                     hasError: true,
                     loading: false,

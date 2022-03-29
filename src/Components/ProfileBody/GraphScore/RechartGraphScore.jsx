@@ -9,7 +9,6 @@ const RechartGraphScore = ({ todayScore }) => {
 
     useEffect(() => {
         if (todayScore) {
-            console.log(todayScore);
             setScoreData(formatScoreData(todayScore));
         }
     }, [todayScore]);

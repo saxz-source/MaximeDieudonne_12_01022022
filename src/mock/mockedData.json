@@ -1,0 +1,135 @@
+{
+    "USER_MAIN_DATA": {
+        "id": 14,
+        "userInfos": {
+            "firstName": "Jean",
+            "lastName": "Tortue",
+            "age": 12
+        },
+        "todayScore": 0.98,
+        "keyData": {
+            "calorieCount": 1400,
+            "proteinCount": 20,
+            "carbohydrateCount": 50,
+            "lipidCount": 350
+        }
+    },
+
+    "USER_ACTIVITY": {
+        "userId": 14,
+        "sessions": [
+            {
+                "day": "2022-08-20",
+                "kilogram": 70,
+                "calories": 300
+            },
+            {
+                "day": "2022-08-21",
+                "kilogram": 72,
+                "calories": 400
+            },
+            {
+                "day": "2022-08-22",
+
+                "kilogram": 70,
+                "calories": 500
+            },
+            {
+                "day": "2022-08-23",
+
+                "kilogram": 79,
+                "calories": 230
+            },
+            {
+                "day": "2022-08-24",
+
+                "kilogram": 80,
+                "calories": 455
+            },
+            {
+                "day": "2022-08-25",
+
+                "kilogram": 55,
+                "calories": 555
+            },
+            {
+                "day": "2022-08-26",
+
+                "kilogram": 80,
+                "calories": 450
+            }
+        ]
+    },
+
+    "USER_AVERAGE_SESSIONS": {
+        "userId": 14,
+        "sessions": [
+            {
+                "day": 1,
+                "sessionLength": 50
+            },
+            {
+                "day": 2,
+                "sessionLength": 40
+            },
+            {
+                "day": 3,
+                "sessionLength": 30
+            },
+            {
+                "day": 4,
+                "sessionLength": 60
+            },
+            {
+                "day": 5,
+                "sessionLength": 50
+            },
+            {
+                "day": 6,
+                "sessionLength": 40
+            },
+            {
+                "day": 7,
+                "sessionLength": 55
+            }
+        ]
+    },
+
+    "USER_PERFORMANCE": {
+        "userId": 14,
+        "kind": {
+            "1": "cardio",
+            "2": "energy",
+            "3": "endurance",
+            "4": "strength",
+            "5": "speed",
+            "6": "intensity"
+        },
+        "data": [
+            {
+                "value": 100,
+                "kind": 1
+            },
+            {
+                "value": 180,
+                "kind": 2
+            },
+            {
+                "value": 50,
+                "kind": 3
+            },
+            {
+                "value": 29,
+                "kind": 4
+            },
+            {
+                "value": 45,
+                "kind": 5
+            },
+            {
+                "value": 80,
+                "kind": 6
+            }
+        ]
+    }
+}
