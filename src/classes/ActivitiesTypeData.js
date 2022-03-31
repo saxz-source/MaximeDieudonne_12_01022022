@@ -1,6 +1,11 @@
 /** Class for activities type data */
 export class ActivitiesTypeData {
+    /**
+     * Format activities type datas
+     * @param {{data : {value : number, kind :number}[], kind:{ 1: "cardio",2: "energy",3: "endurance",4: "strength",5: "speed",6: "intensity"}, userId : number}} activitiesData
+     */
     constructor(activitiesData) {
+        console.log(activitiesData);
         this.data = activitiesData.data;
         this.kind = activitiesData.kind;
         this.userId = activitiesData.userId;

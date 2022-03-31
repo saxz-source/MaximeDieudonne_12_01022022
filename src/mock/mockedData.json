@@ -24,16 +24,17 @@
                 "calories": 300
             },
             {
-                "day": "2022-08-21",
-                "kilogram": 72,
-                "calories": 400
-            },
-            {
                 "day": "2022-08-22",
 
                 "kilogram": 70,
                 "calories": 500
             },
+            {
+                "day": "2022-08-21",
+                "kilogram": 72,
+                "calories": 400
+            },
+         
             {
                 "day": "2022-08-23",
 

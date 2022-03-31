@@ -1,5 +1,9 @@
 /** Class for a key data (an element) */
 export class KeyData {
+  /**
+   * Format the key datas for db
+   * @param {{calorieCount: number, carbohydrateCount: number, lipidCount: number, proteinCount: number}} keyDataObject 
+   */
   constructor( keyDataObject ) {
     this.calorieCountWithUnits = this.addCaloriesUnits(
       keyDataObject.calorieCount

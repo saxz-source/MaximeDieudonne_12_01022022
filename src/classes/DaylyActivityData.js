@@ -1,11 +1,19 @@
 /** Class for daylayActivities data (an element) */
 export class DaylyActivityData {
+    /**
+     * Format an item DaylyActivityData
+     * @param {{calories : number, day : string, kilogram : number}} daylyActivityData
+     * @param {number} maxCalories
+     * @param {number} minWeigth
+     * @param {number} diffWeigth
+     */
     constructor(
         { day, kilogram, calories },
         maxCalories,
         minWeigth,
         diffWeigth
     ) {
+        this.date = new Date(`${day}`);
         this.day = this.formatDay(day);
         this.kilogram = kilogram;
         this.calories = calories;
